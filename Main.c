@@ -34,7 +34,7 @@ main(int argc, char **argv)
     }
 
     char* res_str = b_result_str(b_result(board));
-    printf("%s\n", res_str);
+    printf("\n%s\n\n", res_str);
     
     free(board);
     free(res_str);

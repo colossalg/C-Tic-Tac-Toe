@@ -87,23 +87,23 @@ b_move_validate(Board* board, int move)
 void
 b_print(Board* board)
 {
+    char pcs[] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     for (int i = 0; i < 9; ++i)
     {
-        if (i % 3 == 0)
-            printf("\n");
-
-        /*
-            Only one of the following should ever execute but
-            it helps with debugging if we check for all.
-        */
         if ((board->x_pieces & (1 << i)) != 0)
-            printf("X");
-        if ((board->o_pieces & (1 << i)) != 0)
-            printf("O");
-        if ((board->empty & (1 << i)) != 0)
-            printf(".");
+            pcs[i] = 'X';
+        else if ((board->o_pieces & (1 << i)) != 0)
+            pcs[i] = 'O';
     }
 
+    printf("\n");
+    printf("+-+-+-+\n");
+    printf("|%c|%c|%c|\n", pcs[0], pcs[1], pcs[2]);
+    printf("+-+-+-+\n");
+    printf("|%c|%c|%c|\n", pcs[3], pcs[4], pcs[5]); 
+    printf("+-+-+-+\n");
+    printf("|%c|%c|%c|\n", pcs[6], pcs[7], pcs[8]); 
+    printf("+-+-+-+\n");
     printf("\n");
 }
 
